@@ -1,10 +1,17 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {navLinks} from "../assets/assets.js";
 import {NavLink} from "react-router-dom";
 import useIsMobile from "../hooks/use-is-mobile.ts";
+import {useNavigate} from "react-router-dom";
+import {ChevronDown} from 'lucide-react';
 
 const Navbar = () => {
   const {isMobile} = useIsMobile()
+  const navigate = useNavigate();
+
+  const [showMenu, setShowMenu] = useState(false);
+  const [token, setToken] = useState(true);
+
 
   return (
       <div className={"nav-bar"}>
@@ -15,20 +22,56 @@ const Navbar = () => {
           <p className={"logo-font text-xl text-gold"}>Hair
             Salon</p>
         </div>
-        <ul className={`${isMobile} && hidden md:flex items-start gap-5 font-medium`}>
+        <ul className={`${isMobile ? 'hidden' : 'flex'} items-start gap-5 font-medium`}>
           {navLinks.map((navlink, index) => (
-              <NavLink to={navlink.href} key={index} className={"hover:underline"}>
-                <li className={"py-1 uppercase tracking-tight"}>
-                  <p className={"hover:text-yellow-500"}>
-                    {navlink.title}
-                  </p>
-                </li>
-                <hr className={"border-none outline-none h-0.5 bg-primary w-3/5 m-auto"}/>
-              </NavLink>
+              <li key={index} className="uppercase tracking-tight">
+                <NavLink
+                    to={navlink.href}
+                    className={({isActive}) =>
+                        `flex flex-col items-center hover:text-yellow-500`
+                    }
+                >
+                  {({isActive}) => (
+                      <>
+                        <p>{navlink.title}</p>
+                        {isActive && (
+                            <hr className="mt-1 h-0.5 w-3/5 bg-yellow-500"/>
+                        )}
+                      </>
+                  )}
+                </NavLink>
+              </li>
           ))}
         </ul>
         <div>
-          <button>Create account</button>
+          <div className="flex items-center gap-4">
+            {token ? <div className={"flex items-center gap-1 cursor-pointer group relative"}>
+                  <img src={"/images/avatar.png"} alt={"user-image"}
+                       className={"w-10 rounded-full "}
+                  />
+                  <ChevronDown/>
+                  <div
+                      className={"absolute top-0 right-0 pt-20 text-base font-medium text-gray-600 z-20 hidden group-hover:block"}>
+                    <div className={"min-w-48 bg-stone-100 rounded flex flex-col gap-4 p-4"}>
+                      <p onClick={() => navigate("/my-profile")} className={"hover:text-black cursor-pointer"}
+                      >Моят профил</p>
+                      <p onClick={() => navigate("/my-appointments")} className={"hover:text-black cursor-pointer"}
+                      >Моите часове</p>
+                      <p onClick={() => {
+                        setToken(false);
+                        navigate("/")
+                      }} className={"hover:text-black cursor-pointer"}
+                      >Излизане</p>
+                    </div>
+                  </div>
+                </div>
+                :
+                <button onClick={() => navigate("/login")}
+                        className={"bg-primary-gradient text-white px-8 py-3 rounded-full font-light hidden md:block cursor-pointer"}>Регистрирай
+                  се
+                </button>
+            }
+          </div>
         </div>
       </div>
   )

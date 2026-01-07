@@ -57,3 +57,26 @@
     @apply flex items-center justify-between text-sm py-4 mb-5 border-b border-b-gray-400 p-5
   }
 }
+
+@layer utilities {
+  .active hr {
+    @apply block
+  }
+}
+
+@theme {
+  --color-primary-start: #fcd34d; /* amber-300 */
+  --color-primary-middle: #eab308; /* yellow-500 */
+  --color-primary-end: #b45309;   /* amber-700 */
+}
+
+@layer utilities {
+  .bg-primary-gradient {
+    background-image: linear-gradient(
+            to right,
+            var(--color-primary-start),
+            var(--color-primary-middle),
+            var(--color-primary-end)
+    );
+  }
+}
