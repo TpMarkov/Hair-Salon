@@ -1,6 +1,6 @@
 import React from 'react'
 import {ChevronRight} from 'lucide-react';
-import Services from "../pages/Services.jsx";
+import Service from "../pages/Service.jsx";
 
 const Header = () => {
   return (

@@ -23,6 +23,25 @@ export const services = [
     image: "/images/4.jpg",
     fee: "8€"
   },
+  {
+    serviceId: 5,
+    type: "Бретон",
+    image: "/images/5.jpg",
+    fee: "7€"
+  },
+  {
+    serviceId: 6,
+    type: "Брада",
+    image: "/images/6.jpeg",
+    fee: "7€"
+  },
+  {
+    serviceId: 6,
+    type: "Боядисване на корени",
+    image: "/images/7.jpg",
+    fee: "28€"
+  },
+
 ]
 
 

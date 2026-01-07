@@ -20,7 +20,7 @@ const ServicesMenu = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {topServices.map((service, index) => (
               <div
-                  onClick={() => navigate(`/services/${service.type}`)}
+                  onClick={() => navigate(`/service/${service.type}`)}
                   key={service.serviceId || index}
                   className="group relative cursor-pointer"
               >
