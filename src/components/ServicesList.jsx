@@ -1,12 +1,14 @@
-import React, {useRef} from 'react'
-import {services} from "../assets/assets.js"
+import React, {useContext, useRef} from 'react'
 import {useNavigate} from "react-router-dom"
 import gsap from "gsap"
 import {useGSAP} from "@gsap/react"
+import {AppContext} from "../context/AppContext.jsx";
 
 const ServicesList = () => {
   const navigate = useNavigate()
   const containerRef = useRef()
+
+  const {services} = useContext(AppContext)
 
   useGSAP(() => {
     gsap.from(".service-card", {

@@ -42,6 +42,16 @@ const Service = () => {
 
         <div className="flex justify-center md:justify-start ">
           <button
+
+              onClick={() => {
+                Notification.requestPermission().then(perm => {
+                  if (perm === "granted") {
+                    new Notification("Example notification", {
+                      body: "This is more text"
+                    })
+                  }
+                })
+              }}
               className="group flex items-center gap-3 bg-primary-gradient px-8 py-4 rounded-full text-white font-bold text-lg shadow-lg hover:shadow-amber-500/30 transition-all active:scale-95 cursor-pointer"
           >
           <span>
