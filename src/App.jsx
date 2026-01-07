@@ -9,6 +9,7 @@ import Service from "./pages/Service.jsx";
 import Appointment from "./pages/Appointment.jsx";
 import Navbar from "./components/Navbar.jsx";
 import ServicesList from "./components/ServicesList.jsx";
+import Footer from "./components/Footer.jsx";
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="/service/:type" element={<Service/>}/>
           <Route path="/appointment/:type" element={<Appointment/>}/>
         </Routes>
+        <Footer/>
       </div>
   )
 }
