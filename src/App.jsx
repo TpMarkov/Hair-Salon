@@ -23,7 +23,8 @@ function App() {
           <Route path="/my-appointments" element={<MyAppointments/>}/>
           <Route path="/my-profile" element={<MyProfile/>}/>
           <Route path="/services/:type" element={<Services/>}/>
-          <Route path="/appointment/:serviceId" element={<Appointment/>}/>
+          <Route path="/services" element={<Services/>}/>
+          <Route path="/appointment/:type" element={<Appointment/>}/>
         </Routes>
       </div>
   )
