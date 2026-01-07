@@ -42,13 +42,16 @@ const ServicesList = () => {
                 alt={item.type}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-                <span className="text-gold font-medium">Научи повече →</span>
+              <div className="absolute inset-0 bg-black/40 bg-gradient-to-t from-black/80 via-transparent to-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-between items-center p-8">
+                <h3 className="text-white text-2xl font-bold text-center transform -translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  {item.type}
+                </h3>
+                <span className="text-gold font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Научи повече →</span>
               </div>
             </div>
 
             <div className="px-2">
-              <h3 className="text-gold text-xl font-semibold mb-2 group-hover:text-white transition-colors duration-300">
+              <h3 className="text-gold text-xl font-semibold mb-2 transition-colors duration-300">
                 {item.type}
               </h3>
               <div className="flex items-center justify-between">
