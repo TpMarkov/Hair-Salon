@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
       <div className={"nav-bar"}>
-        <div className="flex items-center cursor-pointer">
+        <div className="flex items-center cursor-pointer" onClick={() => navigate("/")}>
           <a href="/">
             <img src="/images/logo.png" alt="logo" className="w-15 h-15 cursor-pointer"/>
           </a>

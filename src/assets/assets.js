@@ -17,6 +17,12 @@ export const services = [
     image: "/images/2.jpg",
     fee: "8€"
   },
+  {
+    serviceId: 4,
+    type: "Детско подстригване",
+    image: "/images/4.jpg",
+    fee: "8€"
+  },
 ]
 
 
