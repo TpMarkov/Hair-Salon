@@ -11,22 +11,28 @@ const About = () => {
   const cardsRef = useRef([]);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Hero Title Animation
+    const mm = gsap.matchMedia();
+
+    mm.add({
+      isDesktop: "(min-width: 1024px)",
+      isSmall: "(max-width: 1023px)"
+    }, (context) => {
+      let { isDesktop } = context.conditions;
+
       gsap.from(".about-title", {
-        y: 50,
+        y: isDesktop ? 50 : 30,
         opacity: 0,
         duration: 1,
         ease: "power3.out"
       });
 
-      // Main Content Animation
       gsap.from(imageRef.current, {
         scrollTrigger: {
           trigger: imageRef.current,
-          start: "top 80%",
+          start: isDesktop ? "top 80%" : "top 90%",
         },
-        x: -100,
+        x: isDesktop ? -100 : 0,
+        y: isDesktop ? 0 : 30,
         opacity: 0,
         duration: 1.2,
         ease: "power2.out"
@@ -35,30 +41,30 @@ const About = () => {
       gsap.from(textRef.current, {
         scrollTrigger: {
           trigger: textRef.current,
-          start: "top 80%",
+          start: isDesktop ? "top 80%" : "top 90%",
         },
-        x: 100,
+        x: isDesktop ? 100 : 0,
+        y: isDesktop ? 0 : 30,
         opacity: 0,
         duration: 1.2,
         ease: "power2.out"
       });
-
-      // Card Stagger Animation
-      gsap.from(".value-card", {
-        scrollTrigger: {
-          trigger: ".values-grid",
-          start: "top 85%",
-        },
-        y: 30,
-        opacity: 0,
-        stagger: 0.2,
-        duration: 0.8,
-        ease: "back.out(1.7)"
-      });
     }, sectionRef);
 
-    return () => ctx.revert();
+    // Initial refresh after a small delay to handle layout settling
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 200);
+
+    return () => {
+      mm.revert();
+      clearTimeout(timer);
+    };
   }, []);
+
+  const handleImageLoad = () => {
+    ScrollTrigger.refresh();
+  };
 
   const values = [
     { title: "Прецизност", desc: "Всеки детайл е важен за нас, за да постигнем перфектния резултат." },
@@ -78,11 +84,12 @@ const About = () => {
 
       {/* Hero Section / Our Story */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
-        <div ref={imageRef} className="relative group overflow-hidden rounded-2xl shadow-2xl">
+        <div ref={imageRef} className="relative group overflow-hidden rounded-2xl shadow-2xl aspect-[4/3] bg-gray-100">
           <img
             src="/images/11.jpg"
             alt="about-image"
             className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
+            onLoad={handleImageLoad}
           />
           <div className="absolute inset-0 bg-black/10 transition-colors duration-500 group-hover:bg-transparent" />
         </div>
