@@ -81,8 +81,12 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission logic here
+
     alert("Благодарим Ви! Вашето съобщение беше изпратено.");
+
+    //TODO : Implement sending emails
   };
+
 
   return (
     <div ref={sectionRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
