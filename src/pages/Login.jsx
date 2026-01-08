@@ -16,6 +16,7 @@ const Login = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     const ctx = gsap.context(() => {
       gsap.from(imageRef.current, {
         x: -50,
