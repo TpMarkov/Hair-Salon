@@ -24,7 +24,7 @@ const Service = () => {
             <span className="text-gray-400 text-sm">Времетраене: ~45 мин</span>
           </div>
           <span className="text-gold text-3xl font-bold">
-          {service.fee}
+          {service.fee}€
         </span>
         </div>
 

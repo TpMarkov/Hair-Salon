@@ -43,7 +43,7 @@ const ServicesMenu = () => {
                   </h3>
                   <div className="flex items-center justify-between">
                     <span className="text-gray-400">Времетраене: ~45 мин</span>
-                    <span className="text-gold font-bold text-lg">{service.fee}</span>
+                    <span className="text-gold font-bold text-lg">{service.fee}€</span>
                   </div>
                 </div>
               </div>
