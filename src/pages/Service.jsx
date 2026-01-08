@@ -123,7 +123,7 @@ const Service = () => {
               <Calendar className="text-amber-500" size={24} />
             </div>
             <div>
-              <h3 className="text-2xl font-bold text-white mb-1 tracking-tight">
+              <h3 className="text-2xl font-bold text-gray-400 mb-1 tracking-tight ">
                 Запазете своя <span className="text-gold">час</span>
               </h3>
               <p className="text-gray-400 text-sm italic">Изберете най-удобното време за посещение</p>
@@ -133,7 +133,7 @@ const Service = () => {
             <div className="flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 px-4 py-2 rounded-xl animate-in fade-in slide-in-from-right-4 duration-500">
               <Clock size={16} className="text-amber-500" />
               <span className="text-amber-500 text-sm font-medium">Избран час:</span>
-              <span className="text-white font-bold">{slotTime}</span>
+              <span className="text-gray-400 font-bold">{slotTime}</span>
             </div>
           )}
         </div>
