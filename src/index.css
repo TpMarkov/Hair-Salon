@@ -65,18 +65,30 @@
 }
 
 @theme {
-  --color-primary-start: #fcd34d; /* amber-300 */
-  --color-primary-middle: #eab308; /* yellow-500 */
-  --color-primary-end: #b45309;   /* amber-700 */
+  --color-primary-start: #fcd34d;
+  /* amber-300 */
+  --color-primary-middle: #eab308;
+  /* yellow-500 */
+  --color-primary-end: #b45309;
+  /* amber-700 */
 }
 
 @layer utilities {
   .bg-primary-gradient {
-    background-image: linear-gradient(
-            to right,
-            var(--color-primary-start),
-            var(--color-primary-middle),
-            var(--color-primary-end)
-    );
+    background-image: linear-gradient(to right,
+        var(--color-primary-start),
+        var(--color-primary-middle),
+        var(--color-primary-end));
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 }
